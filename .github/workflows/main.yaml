@@ -42,13 +42,16 @@ jobs:
         
     # Run build of the application
     - name: Run build
-      run: go build ./go/
+      run: |
+        cd ./go
+        go build .
       
     # Run vet & lint on the code
     - name: Run vet & lint
       run: |
-        go vet ./go/
-        golint ./go/
+        cd ./go
+        go vet .
+        golint .
     
     # Run testing on the code
     - name: Run testing
